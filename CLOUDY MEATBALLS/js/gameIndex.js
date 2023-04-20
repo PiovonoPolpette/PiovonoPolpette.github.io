@@ -32,20 +32,21 @@ function control(e){
     }
 }
 
+var i = 0;
 function generateMeatballs(){
 
     var polpettaBottom = 380;
     var polpettaLeft = Math.floor(Math.random()*678);
-
+    i++;
     //genera div
     var mb=document.createElement('div');
-    mb.setAttribute('class', 'mb');
+    mb.setAttribute('class', 'mb mb'+i);
     polpette.appendChild(mb);
     
     //per generare l'img
     var img = document.createElement("img"); 
     img.src = "../img/clipart1924778.png"; 
-    var src = document.querySelector(".mb"); 
+    var src = document.querySelector(".mb"+i); 
     src.appendChild(img);
 
     //funzione per gestire polpette
@@ -56,9 +57,10 @@ function generateMeatballs(){
        
     }
     setInterval(fallDown, 30);
-    setTimeout(generateMeatballs, 2000); 
+    
 }
-generateMeatballs();
+
+setInterval(generateMeatballs, 2000);
 
 document.addEventListener("keydown" , control);
 
